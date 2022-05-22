@@ -4,5 +4,3 @@ try {
 } catch (Exception $error){
     echo "No se pudo conectar a la base de datos";
 }
-
-?>
