@@ -10,9 +10,9 @@
                 <?php
                     require('conexion.php');
                     $query = "SELECT vuelo.vuelo_id, vuelo.codigo_vuelo, vuelo.estado 
-                                FROM vuelo 
-                                WHERE estado = 'pendiente';";
-                    $consulta1 = $conexion -> prepare($query);
+                            FROM vuelo 
+                             WHERE estado = 'pendiente';";
+                    $result = $conexion -> prepare($query);
                     $result -> execute();
 
                     $data = $result -> fetchAll();
@@ -51,10 +51,10 @@
                 $query_4 = "SELECT tabla.pasaporte_comprador, tabla.nombre, MAX(tabla.maximo_ticket) as maximo_ticket
                 FROM ( SELECT reserva.pasaporte_comprador, compania_aerea.nombre, COUNT(reserva.numero_ticket) as maximo_ticket
                 FROM reserva, ticket, vuelo, compania_aerea
-                WHERE reserva,numero_ticket = ticket.numero_ticket AND vuelo.vuelo_id = ticket.vuelo_id AND compania_aerea.codigo_compania = vuelo.codigo_compania";
+                WHERE reserva,numero_ticket = ticket.numero_ticket AND vuelo.vuelo_id = ticket.vuelo_id AND compania_aerea.codigo_compania = vuelo.codigo_compania;";
                 $consulta4 = pgquery($conexion, $query_4); 
 
-                if ($consulta4){
+                if ($consulta4)
                 if (pg_num_rows($consulta4)>0){
                     echo "<p>Listado por aerolinea<br>";
                     while($obj=pg_fecth_object($consulta4)){
@@ -81,7 +81,7 @@
                                            WHERE vuelo.codigo_compania = compania_aerea.codigo_compania
                                            GROUP BY compania_aerea.nombre) as tabla_2
                 WHERE vuelo.codigo_compania = compania_aerea.codigo_compania AND vuelo.estado = 'aceptado' AND compania_aerea.nombre = tabla_2.nombre
-                GROUP BY  compania_aerea.nombre";
+                GROUP BY  compania_aerea.nombre;";
                 $consulta6 = pgquery($conexion, $query_6);
 
                 if ($consulta6){
