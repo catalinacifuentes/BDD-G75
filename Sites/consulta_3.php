@@ -26,7 +26,7 @@
                 echo "<tr>
                         <td>$d[0]</td>
                         <td>$d[1]</td>
-                        <td><a href=$d[2] target='_blank'>link</a></td>
+                        <td>$d[2]</td>
                       </tr>";
             }
         ?>
