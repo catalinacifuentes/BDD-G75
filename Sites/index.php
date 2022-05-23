@@ -24,6 +24,15 @@
                 <form align="center" action="consulta_4.php" method="post">
                     <p> Haz click para ver la consulta </p>
                     <input type="submit" name="Buscar">
+
+    </form>
+                <li>Al ingresar el nombre de una aerolínea, liste la cantidad de vuelos que tienen en cada uno de los estados.</li>
+                <form align="center" action="consulta_5.php" method="post">
+                    <p> Ingrese nombre de la aerolinea </p>
+                    <input type="text" name="aerolinea">
+                    <p> Haz click para ver la consulta </p>
+                    <input type="submit" name="Buscar">
+        
             </ul>
     </body>
 <footer>

@@ -1,20 +1,32 @@
 <?php
-require('conexion.php');
-$aerolinea = $_POST['aerolinea'];
+        require('conexion.php');
+        $aerolinea = $_POST['aerolinea'];
 
-$query_5 = "SELECT compania_aerea.nombre,vuelo.estado, COUNT(vuelo.estado) as numero
-FROM compania_aerea, Vuelo
-WHERE compania_aerea.codigo_compania = vuelo.codigo_compania AND compania_aerea.nombre = $aerolinea
-GROUP BY compania_aerea.nombre, vuelo.estado";
-$consulta5 = pgquery($conexion, $query_5);
-if ($consulta5){
-if (pg_num_rows($consulta3)>0){
-    echo "<p>Cantidad de vuelos por estado<br>";
-    while($obj=pg_fecth_object($consulta5)){
-        echo $obj->Vuelo.estado."-->";
-        echo $obj->numero."<br>";
-    }
-}
-}
+        $query = "SELECT compania_aerea.nombre_compania, vuelo.estado, COUNT(vuelo.estado) as numero
+                FROM compania_aerea, Vuelo
+                WHERE compania_aerea.codigo_compania = vuelo.codigo_compania AND compania_aerea.nombre LIKE '%$aerolinea%'
+                GROUP BY compania_aerea.nombre, vuelo.estado;";
+        $result = $conexion -> prepare($query);
+        $result -> execute();
 
-?>
+        $data = $result -> fetchAll();
+                    
+    ?>
+
+    <table>
+        <tr>
+            <th> Nombre Compania  </th>
+            <th> Estado del vuelo </th>
+            <th> Cantidad </th>
+        </tr>
+
+        <?php
+            foreach ($data as $d) {
+                echo "<tr>
+                        <td>$d[0]</td>
+                        <td>$d[1]</td>
+                        <td>$d[2]</td>
+                      </tr>";
+            }
+        ?>
+    </table>
