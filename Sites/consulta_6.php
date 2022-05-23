@@ -6,7 +6,7 @@
                 FROM vuelo, compania_aerea, (SELECT compania_aerea.nombre_compania, COUNT(vuelo.estado) as vuelos_totales
                                    FROM vuelo, compania_aerea
                                    WHERE vuelo.codigo_compania = compania_aerea.codigo_compania
-                                   GROUP BY Compania_aerea.nombre_compania) as tabla_2
+                                   GROUP BY compania_aerea.nombre_compania) as tabla_2
                 WHERE vuelo.codigo_compania = compania_aerea.codigo_compania AND vuelo.estado = 'aceptado' AND compania_aerea.nombre_compania = tabla_2.nombre_compania
                 GROUP BY  compania_aerea.nombre_compania
                 ORDER BY DESC porcentaje 
@@ -21,7 +21,7 @@
     <table>
         <tr>
             <th> Nombre Compania  </th>
-            <th> Porcentaje de vuelo aceptados</th>
+            <th> Porcentaje de vuelos aceptados</th>
         </tr>
 
         <?php
