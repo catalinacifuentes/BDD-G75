@@ -1,7 +1,7 @@
 <?php
         require('conexion.php');
         $codigo = $_POST["codigo"];
-        $aerolinea = $_POST["aerolinea"]
+        $aerolinea = $_POST["aerolinea"];
         $query = "SELECT vuelo_id, codigo_vuelo, vuelo.estado
                 FROM vuelo 
                 WHERE aerodromo_llegada_id IN (SELECT aerodromo_id
