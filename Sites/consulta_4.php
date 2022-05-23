@@ -6,7 +6,7 @@
         FROM reserva, ticket, vuelo, compania_aerea
         WHERE reserva.numero_ticket = ticket.numero_ticket AND vuelo.vuelo_id = ticket.vuelo_id AND compania_aerea.codigo_compania = vuelo.codigo_compania
         GROUP BY reserva.pasaporte_comprador,  compania_aerea.nombre_compania)as tabla
-        GROUP BY tabla.pasaporte_comprador, tabla.nombre_compania";
+        GROUP BY tabla.nombre_compania";
         $result = $conexion -> prepare($query);
         $result -> execute();
 
