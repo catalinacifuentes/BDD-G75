@@ -11,14 +11,14 @@
                     require('conexion.php');
                     $query = "SELECT vuelo.vuelo_id, vuelo.codigo_vuelo, vuelo.estado 
                                 FROM vuelo 
-                                WHERE estado LIKE 'pendiente'";
+                                WHERE estado LIKE 'pendiente';";
                     $consulta1 = $conexion -> prepare($query);
                     $result -> execute();
 
                     $data = $result -> fetchAll();
                     
                 ?>
-                
+
                 <table>
                     <tr>
                         <th> vuelo id </th>
