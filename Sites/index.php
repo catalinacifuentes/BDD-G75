@@ -9,7 +9,7 @@
                 <li>Vuelos pendientes de ser aprobados por la DGAC</li>
                 <?php
                 require('conexion.php');
-                $query_1 = "SELECT vuelo_id, codigo_vuelo FROM Vuelo WHERE estado = 'pendiente'";
+                $query_1 = "SELECT vuelo_id, codigo_vuelo FROM vuelo WHERE estado = 'pendiente'";
                 $consulta1 = pgquery($conexion, $query_1);
 
                 if ($consulta1){
