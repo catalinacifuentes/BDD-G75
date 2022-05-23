@@ -3,7 +3,7 @@
         $aerolinea = $_POST['aerolinea'];
 
         $query = "SELECT compania_aerea.nombre_compania, vuelo.estado, COUNT(vuelo.estado) as numero
-                FROM compania_aerea, Vuelo
+                FROM compania_aerea, vuelo
                 WHERE compania_aerea.codigo_compania = vuelo.codigo_compania AND compania_aerea.nombre LIKE '%$aerolinea%'
                 GROUP BY compania_aerea.nombre, vuelo.estado;";
         $result = $conexion -> prepare($query);
