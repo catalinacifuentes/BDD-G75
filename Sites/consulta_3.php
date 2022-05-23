@@ -6,7 +6,7 @@
                 WHERE ticket.numero_ticket  = reserva.numero_ticket 
                 AND vuelo.ruta_id = costo_ticket.ruta_id 
                 AND vuelo.codigo_aeronave = costo_ticket.codigo_aeronave AND ticket.vuelo_id = vuelo.vuelo_id 
-                AND reserva.codigo_reserva = $codigo;";
+                AND reserva.codigo_reserva LIKE '%$codigo%';";
         $result = $conexion -> prepare($query);
         $result -> execute();
 
