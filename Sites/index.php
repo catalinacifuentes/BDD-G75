@@ -19,7 +19,11 @@
                     <p> Haz click para ver la consulta </p>
                     <input type="submit" name="Buscar">
 
-    </form>                         
+    </form>                     
+                <li>Por cada aerolínea, muestre al cliente que ha comprado la mayor cantidad de tickets.</li>
+                <form align="center" action="consulta_4.php" method="post">
+                    <p> Haz click para ver la consulta </p>
+                    <input type="submit" name="Buscar">
             </ul>
     </body>
 <footer>
