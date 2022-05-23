@@ -9,7 +9,7 @@
                                    GROUP BY compania_aerea.nombre_compania) as tabla_2
                 WHERE vuelo.codigo_compania = compania_aerea.codigo_compania AND vuelo.estado = 'aceptado' AND compania_aerea.nombre_compania = tabla_2.nombre_compania
                 GROUP BY  compania_aerea.nombre_compania
-                ORDER BY DESC porcentaje 
+                ORDER BY porcentaje DESC
                 LIMIT 1;";
         $result = $conexion -> prepare($query);
         $result -> execute();
