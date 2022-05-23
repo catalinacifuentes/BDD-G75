@@ -21,12 +21,12 @@
                     <?php
                         include('conexion.php');
                         $query="SELECT DISTINCT nombre_compania
-                                    FROM compania_aerea;";
+                                FROM compania_aerea;";
                         $result = $conexion -> prepare($query);
                         $result -> execute();
                         $data = $result -> fetchAll();
                         foreach ($data as $d){
-                            echo '<option_value="'.$d[0].'">'.$d[0].'</option>';
+                            echo '<option_value="'.$d[0].'</option>';
                         }           
 
                     ?>
