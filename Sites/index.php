@@ -32,7 +32,12 @@
                     <input type="text" name="aerolinea">
                     <p> Haz click para ver la consulta </p>
                     <input type="submit" name="Buscar">
-        
+    </form>
+                <li>Muestre la aerolínea que tiene el mayor porcentaje de vuelos aceptados.</li>
+                <form align="center" action="consulta_6.php" method="post">
+                    <p> Haz click para ver la consulta </p>
+                    <input type="submit" name="Buscar">
+    </form>
             </ul>
     </body>
 <footer>
